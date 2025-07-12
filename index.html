@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulshan's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side - ID Card -->
+        <div class="id-card-section">
+            <div class="id-card">
+                <div class="id-card-header">
+                    <div class="id-card-photo">
+                        <img src="my.jpg" alt="Gulshan" class="profile-image">
+                    </div>
+                    <div class="id-card-info">
+                        <h2 class="name">Gulshan Kumar</h2>
+                        <p class="title">Software Engineer & Data Science Enthusiast</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>gulshan.iitb@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 6202712403</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/gulshan0007" target="_blank">GitHub</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/gulshan-kumar-69b54b25b/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="id-card-footer">
+                    <div class="skills" style="flex-direction: column; align-items: flex-start; color: #fff; gap: 10px;">
+                        <div><b>Programming Languages:</b> Python, C++, Java, JavaScript, TypeScript, HTML, CSS, SQL, R</div>
+                        <div><b>ML & AI:</b> Transformers, LangChain, Hugging Face, GANs, YOLO, Computer Vision, NLP, Deep Learning</div>
+                        <div><b>Web:</b> React, React Native, Next.js, Django, Flask, Node.js, Express.js, REST APIs, Socket.IO, WebRTC</div>
+                        <div><b>Cloud & DevOps:</b> AWS, Google Cloud Platform (GCP), Vertex AI, Docker, Linux, Nginx, Apache, CI/CD</div>
+                        <div><b>Databases & Tools:</b> PostgreSQL, MySQL, MongoDB, Redis, Git, GitHub, Postman, Jupyter, VS Code</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Right Side - Terminal -->
+        <div class="terminal-section">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-button close"></div>
+                        <div class="terminal-button minimize"></div>
+                        <div class="terminal-button maximize"></div>
+                    </div>
+                    <div class="terminal-title">Portfolio Terminal</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-content" id="terminal-content">
+                        <div class="terminal-line">
+                            <span class="prompt">C:\Users\Gulshan\Portfolio></span>
+                            <span class="command" id="current-command"></span>
+                            <span class="cursor" id="cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Modals -->
+    <div class="modal" id="personal-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Personal Details</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="detail-section">
+                    <h4>Name</h4>
+                    <p>Gulshan Kumar</p>
+                    <h4>Title</h4>
+                    <p>Software Engineer & Data Science Enthusiast</p>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: gulshan.iitb@gmail.com</li>
+                        <li>Phone: +91 6202712403</li>
+                        <li>GitHub: <a href="https://github.com/gulshan0007" target="_blank">github.com/gulshan0007</a></li>
+                        <li>LinkedIn: <a href="https://www.linkedin.com/in/gulshan-kumar-69b54b25b/" target="_blank">linkedin.com/in/gulshan-kumar-69b54b25b</a></li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Education</h4>
+                    <ul>
+                        <li>Bachelor of Technology [Expected Graduation: 2026], Indian Institute of Technology Bombay</li>
+                        <li>Minor in Artificial Intelligence and Data Science, CMINDS, IIT Bombay</li>
+                        <li>Relevant Coursework: Data Structures & Algorithms, Machine Learning, Game Theory</li>
+                    </ul>
+                </div>
+                <div class="detail-section">
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li><b>Programming Languages:</b> Python, C++, Java, JavaScript, TypeScript, HTML, CSS, SQL, R</li>
+                        <li><b>ML & AI:</b> Transformers, LangChain, Hugging Face, GANs, YOLO, Computer Vision, NLP, Deep Learning</li>
+                        <li><b>Web Technologies:</b> React, React Native, Next.js, Django, Flask, Node.js, Express.js, REST APIs, Socket.IO, WebRTC</li>
+                        <li><b>Cloud & DevOps:</b> AWS, Google Cloud Platform (GCP), Vertex AI, Docker, Linux, Nginx, Apache, CI/CD</li>
+                        <li><b>Databases & Tools:</b> PostgreSQL, MySQL, MongoDB, Redis, Git, GitHub, Postman, Jupyter, VS Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="experience-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Experience</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="experience-item">
+                    <h4>Efkon India — Software Development Intern [May 2025 - Present]</h4>
+                    <ul>
+                        <li>Built an end-to-end ambulance placement pipeline with user data upload, automated preprocessing, clustering, and spatial optimization using a Double Standard Model to minimize emergency response times</li>
+                        <li>Built a real-time fire and smoke detection system using YOLOv8 deep learning model, achieving 94% mAP through advanced CV techniques to automatically identify fire and smoke patterns for rapid emergency response</li>
+                        <li>Implemented CV pipeline (YOLOv8+ESRGAN+OCR) for EV license plate detection & character recognition</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h4>Olivegaea — Machine Learning Intern [Feb 2025 – Apr 2025]</h4>
+                    <ul>
+                        <li>Benchmarked multiple LLMs (e.g., DeepSeek, phi-4) to evaluate performance on GRI-focused text generation</li>
+                        <li>Fine-tuned selected LLM on sustainability datasets using PEFT (LoRA) with 4-bit quantization on Vertex AI (GCP), optimizing memory via BitsAndBytesConfig and gradient checkpointing</li>
+                        <li>Built a modular pipeline for dataset preprocessing, tokenization, model training (Hugging Face Trainer), inference, and cloud integration with Google Cloud Storage for end-to-end deployment</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h4>ScaleUp — Chief Technical Officer [Dec 2024 - Jan 2025]</h4>
+                    <ul>
+                        <li>Developed full-stack social features including post uploads, WhatsApp-style chat, group chats, and communities using React Native, Node.js, and Redis, enhancing user engagement while building backend APIs in Express.js</li>
+                        <li>Engineered real-time functionalities such as live quizzes using Socket.IO and voice/video calling with WebRTC</li>
+                        <li>Integrated Razorpay payment gateway for premium content and paid quizzes; handled secure payment flows</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h4>DraftAI — Software Development Intern [Summer 2024]</h4>
+                    <ul>
+                        <li>Developed document editing web application similar to MS Word using React and Syncfusion Document Editor</li>
+                        <li>Implemented real-time content synchronization between multiple editor instances</li>
+                        <li>Automated HTML to PDF conversion using Python, Pyppeteer, and Nest Asyncio</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h4>LogicRoots — Machine Learning Intern [Summer 2024]</h4>
+                    <ul>
+                        <li>Engineered Flask application converting Figma designs to responsive HTML/CSS using GPT-4</li>
+                        <li>Integrated Figma API for design data extraction and implemented RESTful endpoints</li>
+                        <li>Applied NLP techniques and vector similarity search for intelligent code generation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="projects-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Projects</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="project-grid">
+                    <div class="project-card" style="color: #fff;">
+                        <h4>Mumbai Flood App</h4>
+                        <p><strong>Department of Climate Studies, IITB | Prof. Subimal Ghosh</strong><br>
+                        <em>[Sept 2023- Present]</em></p>
+                        <ul>
+                            <li>Designed and deployed a web platform hosted on Hostinger, and developed the complete interface using React for the website and React Native for the Mobile App on Google Play Store.</li>
+                            <li>Engineered backend with Django and integrated machine learning models, based on merging of GFS data with Station-level historic data for Daily and Hourly Rainfall prediciton for Mumbai</li>
+                            <li>Leveraged Tweepy from Twitter, performing sentiment analysis and geolocation extraction using geopy and mapped railway stations to nearest monitoring stations using spatial algorithms</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>GAN-Powered Anime Face Generator</h4>
+                        <p><strong>Self Project</strong><br>
+                        <em>[Nov- Dec 2023]</em></p>
+                        <ul>
+                            <li>Engineered a robust Anime Face Generator using Generative Adversarial Networks (GANs) in PyTorch, optimizing training efficiency with GPU acceleration on Google Colab</li>
+                            <li>Demonstrated proficiency in deep learning, model architecture design, and GPU utilization</li>
+                            <li>Utilized PyTorch and Matplotlib to visually the evolution of anime face generation across epochs, integrating technical expertise and creative media production into a compelling video</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>Learners' Space</h4>
+                        <p><strong>Career Cell, Undergraduate Academic Council</strong><br>
+                        <em>[June 2024]</em></p>
+                        <ul>
+                            <li>Developed a Full stack application with a PHP backend and HTML, CSS, JavaScript for frontend</li>
+                            <li>Implemented OTP-based authentication for secure user access and registration.</li>
+                            <li>Hosted the website on Hostinger, achieving 7600+ registrations by 2000+ students and facilitating a 30% year-on-year growth in participation, demonstrating the website's effectiveness and appeal.</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>WiDS</h4>
+                        <p><strong>Analytics Club, UGAC</strong><br>
+                        <em>[December 2023]</em></p>
+                        <ul>
+                            <li>Designed and implemented an interactive,dynamic and user-friendly website for the Analytics Club's WiDS (Winter in Data Science) using HTML, CSS, JavaScript, and PHP</li>
+                            <li>Successfully implemented a streamlined data pipeline by developing Python scripts to directly import project details from a CSV file into a MySQL database for the WiDS website</li>
+                            <li>This optimized data management by eliminating the need for separate web pages for each project, enhancing performance, reducing manual effort and redundancy</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>Auction Portal</h4>
+                        <p><strong>Self Project</strong><br>
+                        <em>[June 2023]</em></p>
+                        <ul>
+                            <li>Developed a dynamic and user-friendly auction portal using Django, enabling users to easily list items for auction, place bids, and manage their auctions, enhancing the overall user experience.</li>
+                            <li>Implemented robust authentication and authorization mechanisms, ensuring secure access to user accounts and auction-related actions while maintaining data integrity and privacy.</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>MoviesFlix</h4>
+                        <p><strong>Self Project</strong><br>
+                        <em>[April 2024]</em></p>
+                        <ul>
+                            <li>Created a dynamic movie search application using ReactJS, leveraging public Movie Database API to fetch and deployed the application on Netlify, ensuring seamless user experience and accessibility.</li>
+                            <li>Enhanced user interaction by incorporating pagination/infinite scrolling, genre filtering, sorting options, and features such as movie search, detailed movie information display and responsive layouts.</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>WhatsApp Chat Analyzer</h4>
+                        <p><strong>Self Project</strong><br>
+                        <em>[October 2023]</em></p>
+                        <ul>
+                            <li>Built a Streamlit application, enabling users to upload and analyze their WhatsApp chat data.</li>
+                            <li>Designed monthly and daily timelines, activity maps, and bar charts to showcase message patterns, busy days and months, enhancing the user's understanding of communication within the selected user's chat. Used Matplotlib and Seaborn to create dynamic and visually compelling charts.</li>
+                        </ul>
+                    </div>
+                    <div class="project-card" style="color: #fff;">
+                        <h4>PriceTracker</h4>
+                        <p><strong>Self Project</strong><br>
+                        <em>[Jul 2023]</em></p>
+                        <ul>
+                            <li>Created a robust and automated PriceTracker application using Python, leveraging libraries like requests, bs4, and smtplib to monitor product prices from various online sources.</li>
+                            <li>Implemented web scraping techniques to extract real-time price data from e-commerce websites, enabling users to make informed purchasing decisions and potentially save money by capitalizing on price drops, showcasing proficiency in data extraction and manipulation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="awards-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Awards & Certifications</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+
+                <div class="award-item">
+                    <img src="access2.jpg" alt="ACCESS Awards 2024" style="width: 100%; max-width: 400px; margin-bottom: 10px; border-radius: 8px;">
+                    <h4>🏆 ACCESS Awards 2024 - 2nd Prize</h4>
+                    <p>Team ThermoWatch - Climate & Sustainability: Impacts & Adaptation Category</p>
+                    <p>Awarded by Department of Climate Studies, IIT Bombay for innovative climate solutions</p>
+                    <p class="award-date">2024</p>
+                </div>
+                <div class="award-item">
+                    <img src="awardofexcellence.jpg" alt="IIT Bombay Award of Excellence" style="width: 100%; max-width: 400px; margin-bottom: 10px; border-radius: 8px;">
+                    <h4>🏅 IIT Bombay Award of Excellence</h4>
+                    <p>Recognition for outstanding contribution to the development of an in-house mobile app for campus cleaning and maintenance</p>
+                    <p>Awarded for conceptualization, design, and development excellence</p>
+                    <p class="award-date">March 2025</p>
+                </div>
+                <div class="award-item">
+                    <img src="ugac.jpg" alt="UGAC Certificate of Appreciation" style="width: 100%; max-width: 400px; margin-bottom: 10px; border-radius: 8px;">
+                    <h4>📜 UGAC Certificate of Appreciation</h4>
+                    <p>Web Team Head - Undergraduate Academic Council</p>
+                    <p>Special recognition for exceptional dedication, contributions to the institute, and exemplary leadership</p>
+                    <p class="award-date">May 2023</p>
+                </div>
+               
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
