@@ -753,3 +753,8 @@ a:hover {
 .terminal-content::-webkit-scrollbar-thumb:hover {
     background: #777;
 } 
+
+.command, #terminal-input {
+    direction: ltr !important;
+    unicode-bidi: plaintext !important;
+} 

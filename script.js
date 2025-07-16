@@ -206,6 +206,12 @@ class Terminal {
         const promptLine = document.createElement('div');
         promptLine.className = 'terminal-line current-line';
         promptLine.innerHTML = `<span class="prompt">C:\\Users\\Gulshan\\Portfolio&gt;</span><span class="command" id="current-command"></span><span class="cursor" id="cursor">_</span>`;
+        // Move the terminal input into the new prompt line
+        const terminalInput = document.getElementById('terminal-input');
+        if (terminalInput) {
+            promptLine.appendChild(terminalInput);
+            terminalInput.value = '';
+        }
         this.terminalContent.appendChild(promptLine);
         // Use promptLine.querySelector to get the correct elements
         this.currentCommandElement = promptLine.querySelector('#current-command');
