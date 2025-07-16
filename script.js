@@ -471,6 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (terminalLine && terminalInput && currentCommand) {
         terminalLine.addEventListener('click', function() {
             terminalInput.focus();
+            console.log('Terminal input focused:', document.activeElement === terminalInput);
         });
         terminalInput.addEventListener('input', function() {
             currentCommand.textContent = terminalInput.value;
