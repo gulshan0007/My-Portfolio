@@ -42,15 +42,9 @@ class Terminal {
         this.showPrompt();
         
         // Focus on terminal
-        // Focus on terminal
         document.addEventListener('click', (e) => {
             if (e.target.closest('.terminal')) {
                 this.focus();
-                // For mobile devices, focus the hidden input
-                const terminalInput = document.getElementById('terminal-input');
-                if (terminalInput) {
-                    terminalInput.focus();
-                }
             }
         });
         
@@ -77,27 +71,15 @@ class Terminal {
         });
         
         // Auto-focus terminal on page load
-        // Auto-focus terminal on page load
         setTimeout(() => {
             this.focus();
-            // Also focus the hidden input for mobile
-            const terminalInput = document.getElementById('terminal-input');
-            if (terminalInput) {
-                terminalInput.focus();
-            }
         }, 500);
     }
-    
     
     focus() {
         // Ensure cursor is visible and blinking
         if (this.cursorElement) {
             this.cursorElement.style.animation = 'blink 1s infinite';
-        }
-        // Focus the hidden input for mobile keyboard
-        const terminalInput = document.getElementById('terminal-input');
-        if (terminalInput) {
-            terminalInput.focus();
         }
     }
     
@@ -206,12 +188,6 @@ class Terminal {
         const promptLine = document.createElement('div');
         promptLine.className = 'terminal-line current-line';
         promptLine.innerHTML = `<span class="prompt">C:\\Users\\Gulshan\\Portfolio&gt;</span><span class="command" id="current-command"></span><span class="cursor" id="cursor">_</span>`;
-        // Move the terminal input into the new prompt line
-        const terminalInput = document.getElementById('terminal-input');
-        if (terminalInput) {
-            promptLine.appendChild(terminalInput);
-            terminalInput.value = '';
-        }
         this.terminalContent.appendChild(promptLine);
         // Use promptLine.querySelector to get the correct elements
         this.currentCommandElement = promptLine.querySelector('#current-command');
