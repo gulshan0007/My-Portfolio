@@ -462,3 +462,18 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const terminalLine = document.getElementById('terminal-line');
+    const terminalInput = document.getElementById('terminal-input');
+    const currentCommand = document.getElementById('current-command');
+
+    if (terminalLine && terminalInput && currentCommand) {
+        terminalLine.addEventListener('click', function() {
+            terminalInput.focus();
+        });
+        terminalInput.addEventListener('input', function() {
+            currentCommand.textContent = terminalInput.value;
+        });
+    }
+});
