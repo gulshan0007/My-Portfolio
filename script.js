@@ -42,9 +42,15 @@ class Terminal {
         this.showPrompt();
         
         // Focus on terminal
+        // Focus on terminal
         document.addEventListener('click', (e) => {
             if (e.target.closest('.terminal')) {
                 this.focus();
+                // For mobile devices, focus the hidden input
+                const terminalInput = document.getElementById('terminal-input');
+                if (terminalInput) {
+                    terminalInput.focus();
+                }
             }
         });
         
@@ -71,15 +77,27 @@ class Terminal {
         });
         
         // Auto-focus terminal on page load
+        // Auto-focus terminal on page load
         setTimeout(() => {
             this.focus();
+            // Also focus the hidden input for mobile
+            const terminalInput = document.getElementById('terminal-input');
+            if (terminalInput) {
+                terminalInput.focus();
+            }
         }, 500);
     }
+    
     
     focus() {
         // Ensure cursor is visible and blinking
         if (this.cursorElement) {
             this.cursorElement.style.animation = 'blink 1s infinite';
+        }
+        // Focus the hidden input for mobile keyboard
+        const terminalInput = document.getElementById('terminal-input');
+        if (terminalInput) {
+            terminalInput.focus();
         }
     }
     
@@ -471,16 +489,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (terminalLine && terminalInput && currentCommand) {
         terminalLine.addEventListener('click', function() {
             terminalInput.focus();
-            console.log('Terminal input focused:', document.activeElement === terminalInput);
+            console.log('Terminal clicked. Input focused:', document.activeElement === terminalInput);
         });
         terminalInput.addEventListener('input', function() {
             currentCommand.textContent = terminalInput.value;
+            console.log('Input value:', terminalInput.value);
         });
         terminalInput.addEventListener('focus', function() {
             document.body.classList.add('input-focused');
+            console.log('Input focused');
         });
         terminalInput.addEventListener('blur', function() {
             document.body.classList.remove('input-focused');
+            console.log('Input blurred');
+        });
+        terminalInput.addEventListener('keydown', function(e) {
+            console.log('Key pressed:', e.key);
         });
     }
 });
