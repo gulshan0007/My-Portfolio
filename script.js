@@ -42,9 +42,15 @@ class Terminal {
         this.showPrompt();
         
         // Focus on terminal
+        // Focus on terminal
         document.addEventListener('click', (e) => {
             if (e.target.closest('.terminal')) {
                 this.focus();
+                // Add mobile keyboard support
+                const terminalInput = document.getElementById('terminal-input');
+                if (terminalInput) {
+                    terminalInput.focus();
+                }
             }
         });
         
@@ -80,6 +86,12 @@ class Terminal {
         // Ensure cursor is visible and blinking
         if (this.cursorElement) {
             this.cursorElement.style.animation = 'blink 1s infinite';
+        }
+        
+        // Focus the hidden input for mobile keyboard
+        const terminalInput = document.getElementById('terminal-input');
+        if (terminalInput) {
+            terminalInput.focus();
         }
     }
     
